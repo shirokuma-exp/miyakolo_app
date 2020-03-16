@@ -174,3 +174,43 @@
     color: white;
   }
 }
+
+.aside-bar{
+  position: relative;
+  aside{
+    background-color: rgba(150, 252, 252, 0.6);
+    width: 350px;
+    height: 100%;
+    top: 0;
+    left: -350px;
+    position: fixed;
+    ul{
+      margin: 0;
+      padding: 0;
+      top: 50px;
+      left: 114px;
+      position: absolute;
+    }
+    li{
+      margin: 0 0 20px;
+      list-style: none;
+      image{
+        border-radius: 50%;
+      }
+    }
+    button{
+      background-color: rgba(150, 252, 252, 0.6);
+      display: block;
+      position: absolute;
+      top: 150px;
+      left: 350px;
+      width: 52px;
+      height: 132px;
+      border-radius: 3px;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  }
+
+}

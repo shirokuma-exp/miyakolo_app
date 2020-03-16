@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :hash_tags, through: :post_hash_tags
   validate :image_presence
   after_commit :create_hash_tags, on: :create
+  has_many :map
 
   def image_presence
     errors.add(:image, "can't be blank") unless image.attached?
