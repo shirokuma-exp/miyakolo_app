@@ -55,16 +55,22 @@
       left: 0;
       z-index: 9999;
       width: 90%;
-      max-width: 330px;
+      max-width: 229px;
       height: 100%;
       padding-top: 50px;
-      background: rgb(255,255,255);
+      background: rgba(123, 140, 236, 0.7);
       transition: .3s ease-in-out;
       transform: translateX(-105%);
       .nav-details{
         line-height: 30px;
         font-size: 20px;
         margin: 10px 0 20px 10px;
+        text-decoration: none;
+        li{
+          padding-bottom: 15px;
+          padding-left: 10px;
+          color: rgba(90,90,90,0.8);
+        }
       }
     }
     #nav-input ~ #navclose{

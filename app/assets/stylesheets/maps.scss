@@ -1,5 +1,16 @@
+.miyako-chart{
+  width:100vw;
+  .miyako-likes{
+    width: 50%;
+  }
+  .miyako-hash{
+    width: 50%;
+  }
+}
+
 .map-container{
   display: flex;
+  justify-content: space-between;
 }
 
 .map{
@@ -8,4 +19,9 @@
 .chart{
   width: 45vw;
   background-color: rgba(147,147,147,0.8);
+  p{
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 10px;
+  }
 }
