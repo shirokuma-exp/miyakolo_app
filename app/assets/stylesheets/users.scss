@@ -94,16 +94,22 @@
   }
 }
 
+.image-wrapper{
+  width: 100vw;
+}
+
 .user-images{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  align-content: space-between;
   margin: 0 20px;
   .wrapper{
     width: 280px;
     height: 280px;
     margin: 15px;
-    img{
+    display: flex;
+    justify-content: space-between;
+    .image{
+      display: block;
       border-radius: 4%;
       width: 278px;
       height: 278px;
@@ -111,6 +117,10 @@
       border: 1px solid #efefef;
     }
   }
+}
+
+.liked{
+  display: flex;
 }
 
 .user-edit-page{
