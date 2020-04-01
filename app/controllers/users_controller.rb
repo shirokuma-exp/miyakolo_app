@@ -12,12 +12,21 @@ class UsersController < ApplicationController
     @my_ranks = @all_ranks.select{ |post| post.user_id == current_user.id }
   end
 
+  def new
+  end
+
+  def create
+  end
+
   def edit
   end
 
   def update
     current_user.update(user_params)
     redirect_to current_user
+  end
+
+  def destroy
   end
 
   private
