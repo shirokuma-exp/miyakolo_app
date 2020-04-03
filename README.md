@@ -26,97 +26,100 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false|
-|encrypted_password|string|null: false|
-|name|string|null: false|
-|name_kana|string|null: false|
-|birthday|date|null: false|
-|phone_number|integer|null: false|
-|sex|string|null: false|
+|email|string|default: "",null: false|
+|encrypted_password|string|default: "",null: false|
+|username|string||
+|name|string||
+|website|string||
+|phone|integer||
+|gender|string||
 ### Association
-- has_many :items
-- has_many :comments
-- has_one :card
-- has_one :address
+- devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+- has_one_attached :avatar
+- has_many :posts, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_posts, through: :likes, source: :post
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
+- belongs_to :home
 
-## addressesテーブル
+## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|destination|string|null: false|
-|destination_kana|string|null: false|
-|postcode|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|street|string|null: false|
-|building|string|null: false|
-|user_id|string|null: false, foreign_key: true|
+|description|string||
+|user_id|integer||
 ### Association
 - belongs_to :user
+- has_one_attached :image
+- has_many :likes
+- has_many :liked_users, through: :likes, source: :user
+- has_many :post_hash_tags
+- has_many :hash_tags, through: :post_hash_tags
+- validate :image_presence
+- after_commit :create_hash_tags, on: :create
+- has_many :map
 
-## itemsテーブル
+## relationshipsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|description|text|null: false|
-|condition_id|integer(ah)|null: false|
-|size|string|null: false|
-|delivery_charge_id|integer(ah)|null: false|
-|delivery_way_id|integer(ah)|null: false|
-|shipping_period_id|integer(ah)|null: false|
-|price|integer|null: false|
-|like|integer||
-|region_id|integer(ah)|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|buyer_id|integer||
-|status|integer||
-|category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|user_id|bigint|foreign_key: true,column: "follow_id"|
+|follow_id|bigint||
 ### Association
 - belongs_to :user
-- has_many :photos
-- belongs_to :category
-- belongs_to :brand
-- has_many :comments
+- belongs_to :follow,class_name: 'User'
+- validates :user_id,presence: true
+- validates :follow_id, presence: true
 
-## photosテーブル
+## post_hash_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
-|item_id|integer|null: false, foreign_key: true|
+|post_id|bigint||
+|hash_tag_id|bigint||
 ### Association
-- belongs_to :item
+- belongs_to :post
+- belongs_to :hash_tag
 
-## categoriesテーブル
+## mapsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|ancestry|stirng||
+|hash_tag_id|bigint||
+|post_id|bigint||
+|region|string||
 ### Association
-- has_many :items
-- has_ancestry
+- belongs_to :post
+- belongs_to :hash_tag
 
-## brandsテーブル
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_id|bigint|foreign_key: true|
+|user_id|bigint|foreign_key: true|
+### Association
+- belongs_to :post
+- belongs_to :user
+- validates_uniqueness_of :post_id, scope: :user_id
+
+## homesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|foreign_key: true|
+### Association
+- has_many :users
+
+## hash_tags テーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
 ### Association
-- has_many :items
-
-## cardsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|string|null: false, foreign_key: true|
-|customer_id|string|null: false|
-|card_id|string|null: false|
-### Association
-- belongs_to :user
+- has_many :post_hash_tags
+- has_many :posts, through: :post_hash_tags
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-- belongs_to :item
 - belongs_to :user
