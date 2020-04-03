@@ -1,0 +1,20 @@
+.aside-bar
+  %aside
+    %ul
+      %li
+        %a{:href => "#"}
+          %img.image{:alt => "", :height => "150", :src => "/assets/topic-1.jpg", :width => "150"}/
+      %li
+        %a{:href => "#"}
+          %img.image{:alt => "", :height => "150", :src => "/assets/topic-2.jpg", :width => "150"}/
+      %li
+        %a{:href => "#"}
+          %img.image{:alt => "", :height => "150", :src => "/assets/topic-3.jpg", :width => "150"}/
+    %button
+      %img{:alt => "", :src => "/assets/btn_open.png"}/
+.user-images
+  - @posts.each do |post|
+    .wrapper
+      = link_to post_path(post) do
+        = image_tag post.image
+- link_to "ホームへ戻る",posts_path

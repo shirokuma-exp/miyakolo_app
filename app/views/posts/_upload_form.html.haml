@@ -1,0 +1,10 @@
+= form_for Post.new do |f|
+  .form-group
+    = f.text_field :description
+  .form-group
+    = f.file_field :image
+  .form-group
+    = f.text_field :user_id, value: current_user.id,class: 'd-none'
+  %br/
+  .text-center
+    = f.submit '投稿する',class: 'btn btn-primary'
