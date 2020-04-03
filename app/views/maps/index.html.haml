@@ -1,0 +1,69 @@
+.chart-js
+  %h3 宮古島MAP
+  .map-container
+    .map
+      %p
+        %img{:alt => "map", :height => "700px", :src => "/assets/map-1.png", :width => "700px"}/
+    .chart
+      %p 宮古島の詳細地図を国土地理院のデータから作成
+      %p 島ごとのいいねの数とハッシュタグ利用率をChart.jsで円グラフにし可視化
+      %p 島をクリックすると詳細ページに飛ぶ
+      %p 詳細ページから観光スポット情報、特産物のECサイトにリンク
+      %p 【応用】
+      %p 地理情報システムQJISを使って、ハッシュタグと地図の座標を紐付ける
+      %p ツイート数＝円の大きさにして地図上にアップし、目で見てどのスポットが人気かわかるようにする
+      .miyako-chart
+        .miyako-likes
+          %canvas#myPieChart
+          %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
+          :javascript
+            var ctx = document.getElementById("myPieChart");
+            var myPieChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["宮古島", "伊良部島", "下地島", "来間島","池間島"],
+                datasets: [{
+                    backgroundColor: [
+                        "#BB5179",
+                        "#FAFF67",
+                        "#58A27C",
+                        "#3C00FF",
+                        "pink"
+                    ],
+                    data: [38, 10, 21, 19,12]
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '宮古島 いいね数'
+                }
+              }
+            });
+        .miyako-hash
+          %canvas#myPieChart2
+          %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
+          :javascript
+            var ctx = document.getElementById("myPieChart2");
+            var myPieChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["宮古島", "伊良部島", "下地島", "来間島","池間島"],
+                datasets: [{
+                    backgroundColor: [
+                        "#BB5179",
+                        "#FAFF67",
+                        "#58A27C",
+                        "#3C00FF",
+                        "pink"
+                    ],
+                    data: [22, 30, 14, 30,10]
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '宮古島 ハッシュタグ利用率'
+                }
+              }
+            });

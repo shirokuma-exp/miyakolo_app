@@ -1,0 +1,10 @@
+.search-page
+  - if @posts.exists?
+    %h1 Top Posts
+  - else
+    %h1 検索結果は見つかりませんでした
+  .user-images
+    - @posts.each do |post|
+      .wrapper
+        = link_to post_path(post) do
+          = image_tag post.image
