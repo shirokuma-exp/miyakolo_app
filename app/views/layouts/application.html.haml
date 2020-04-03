@@ -1,7 +1,7 @@
 !!!
-%html.no-js{:lang => "ja"}
+%html.no-js{lang: "ja"}
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
     %title MIYAKOLO
     = csrf_meta_tags
     = stylesheet_link_tag "application", media: "all"
@@ -11,40 +11,4 @@
     = javascript_include_tag "modernizr.custom.js"
     = javascript_include_tag "main.js"
   %body
-    %nav.navbar.navbar-light.bg-light.d-flex
-      .container
-        .nav-header
-          %p
-            = fa_stacked_icon "user inverse",base: "circle"
-            MIYAKOLO
-          #nav-drawer
-            %div
-              %input#nav-input.nav-unshown{:type => "checkbox"}/
-              %label#nav-open{:for => "nav-input"}
-                %span
-              %label#nav-close.nav-unshown
-              #nav-content
-                %ul.nav-details
-                  %li
-                    %a{:href => "home#index"} マイページ
-                  %li
-                    %a{:href => "#"} POST
-                  %li
-                    %a GALLERY
-                  %li
-                    %a MAP
-        .m-auto
-          = form_with url: search_path, method: :get, local: true, class: 'form-inline search-form' do |form|
-            = form.text_field :query, value: params[:query], class: 'form-control mr-sm-3 col-12', placeholder: '検索キーワード'
-        .user-section
-          - if user_signed_in?
-            = link_to "ログアウト", destroy_user_session_path, :method => :delete, class: "log__out"
-            = link_to "マイページ", user_path(current_user.id),class: "log__in"
-          - else
-            = link_to "ログイン", new_user_session_path,class: "log__out"
-            = link_to "ユーザー登録", new_user_registration_path, class: "log__in"
-    %main.container{:style => "min-height: 500px;"}
-      = yield
-    %footer.container.footer
-      %nav.navbar.d-flex
-        %p ©️ 2020 KUMAKURA KENJI
+    = yield

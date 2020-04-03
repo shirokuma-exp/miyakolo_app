@@ -8,7 +8,7 @@
       .user-wrapper
         %h2.username= @user.username
         - if @user == current_user
-          %a.edit-profile{:href => "#{edit_user_path(@user)}"}
+          %a.edit-profile{href: "#{edit_user_path(@user)}"}
             %button プロフィール変更
       %ul.posts
         %li
@@ -24,13 +24,13 @@
       = link_to @user.website, @user.website, class: 'website'
       = render "relationships/follow_button",user: @user
   .user-tabs
-    %a.tab.active{:href => ""}
+    %a.tab.active{href: ""}
       %i.fa.fa-th
       投稿
-    %a.tab{:href => ""}
+    %a.tab{:href: ""}
       %i.fa.fa-bookmark
       いいね
-    %a.tab{:href => ""}
+    %a.tab{href: ""}
       %i.fa.fa-star
       ランキング
   .image-wrapper

@@ -3,7 +3,7 @@
   .map-container
     .map
       %p
-        %img{:alt => "map", :height => "700px", :src => "/assets/map-1.png", :width => "700px"}/
+        %img{alt: "map", height: "700px", src: "/assets/map-1.png", width: "700px"}
     .chart
       %p 宮古島の詳細地図を国土地理院のデータから作成
       %p 島ごとのいいねの数とハッシュタグ利用率をChart.jsで円グラフにし可視化
@@ -15,7 +15,7 @@
       .miyako-chart
         .miyako-likes
           %canvas#myPieChart
-          %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
+          %script{src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
           :javascript
             var ctx = document.getElementById("myPieChart");
             var myPieChart = new Chart(ctx, {
@@ -42,7 +42,7 @@
             });
         .miyako-hash
           %canvas#myPieChart2
-          %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
+          %script{src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"}
           :javascript
             var ctx = document.getElementById("myPieChart2");
             var myPieChart = new Chart(ctx, {
