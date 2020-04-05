@@ -1,90 +1,92 @@
-  %header.slide-header
-    .inner
-      .slideshow
-        .slideshow-slides
-          %a#slide-1.slide{href: "./"}= image_tag 'slide-1.jpg'
-          %a#slide-2.slide{href: "./"}= image_tag 'slide-2.png'
-          %a#slide-3.slide{href: "./"}= image_tag 'slide-3.jpg'
-        .slideshow-nav
-          %a.prev{href: "#"} Prev
-          %a.next{href: "#"} Next
-        .slideshow-indicator
-    .wave-box
-      .wave.-one
-      .wave.-two
-      .wave.-three
-      .title
-        MIYAKOL
-        %span O
-  %div{role: "main"}
-    %section.topics-section
-      %h2.topics TOPICS
-      #caption.images
-        .image-content
-          %h2 Post
-          %p
-            %a{href: "posts#index"}
-              %img.image{alt: "", height: "230", src: "/assets/topic-1.jpg", width: "304"}
-              %strong 好きな景色を投稿しよう
-              %span
-        .image-content
-          %h2 Gallery
-          %p
-            %a{href: "users#index"}
-              %img.image{alt: "", height: "230", src: "/assets/topic-2.jpg", width: "304"}
-              %strong 好きな景色を探そう
-              %span
-        .image-content
-          %h2 Map
-          %p
-            %a{href: "maps#index"}
-              %img.image{alt: "", height: "230", src: "/assets/topic-3.jpg", width: "304"}
-              %strong どこが人気か調べよう
-              %span
-    %section#info.info-section
-      .container
-        .left-inner
-          .info
-            %h2.heading INFO
-            %ul.scroll-list
-              %li.scroll-item
-                %a{href: "#"}
-                  %time.date{:datetime => "2020-03-09"} 2020.03.09
-                  %span.category.news NEWS
-                  %span.title NEWSを更新しました
-              %li.scroll-item
-                %a{href: "#"}
-                  %time.date{datetime: "2020-03-09"} 2020.03.09
-                  %span.category.news NEWS
-                  %span.title NEWSを更新しました
-              %li.scroll-item
-                %a{href: "#"}
-                  %time.date{datetime: "2020-03-09"} 2020.03.09
-                  %span.category.news NEWS
-                  %span.title NEWSを更新しました
-              %li.scroll-item
-                %a{href: "#"}
-                  %time.date{datetime: "2020-03-09"} 2020.03.09
-                  %span.category.news NEWS
-                  %span.title NEWSを更新しました
-          .share
-            %ul
-              %li
-                %a.share-tw{href: "#", onclick: ""}
-                  %i.fa.fa-twitter
-                  %span Twitter
-              %li
-                %a.share-fb{href: "#", onclick: ""}
-                  %i.fa.fa-facebook
-                  %span Facebook
-              %li
-                %a.share-gp{href: "#", onclick: ""}
-                  %i.fa.fa-google-plus
-                  %span Google+
-        .right-inner
-          .twetter
-            %a.twitter-timeline{"data-height": "315", href: "https://twitter.com/shirokuma71exp?ref_src=twsrc%5Etfw"} Tweets by shirokuma71exp
-            %script{async: "", charset: "utf-8", src: "https://platform.twitter.com/widgets.js"}
-  %footer.page-footer
-    %button.back-to-top{type: "button"}
-      %span.label ↑
+.top
+  = render "layouts/header"
+%header.slide-header
+  .inner
+    .slideshow
+      .slideshow-slides
+        %a#slide-1.slide{href: "./"}= image_tag 'slide-1.jpg'
+        %a#slide-2.slide{href: "./"}= image_tag 'slide-2.png'
+        %a#slide-3.slide{href: "./"}= image_tag 'slide-3.jpg'
+      .slideshow-nav
+        %a.prev{href: "#"} Prev
+        %a.next{href: "#"} Next
+      .slideshow-indicator
+  .wave-box
+    .wave.-one
+    .wave.-two
+    .wave.-three
+    .title
+      MIYAKOL
+      %span O
+%div{role: "main"}
+  %section.topics-section
+    %h2.topics TOPICS
+    #caption.images
+      .image-content
+        %h2 Post
+        %p
+          %a{href: posts_path(current_user.id)}
+            %img.image{alt: "", height: "230", src: "/assets/topic-1.jpg", width: "304"}
+            %strong 好きな景色を投稿しよう
+            %span
+      .image-content
+        %h2 Gallery
+        %p
+          %a{href: users_path(current_user.id)}
+            %img.image{alt: "", height: "230", src: "/assets/topic-2.jpg", width: "304"}
+            %strong 好きな景色を探そう
+            %span
+      .image-content
+        %h2 Map
+        %p
+          %a{href: maps_path(current_user.id)}
+            %img.image{alt: "", height: "230", src: "/assets/topic-3.jpg", width: "304"}
+            %strong どこが人気か調べよう
+            %span
+  %section#info.info-section
+    .container
+      .left-inner
+        .info
+          %h2.heading INFO
+          %ul.scroll-list
+            %li.scroll-item
+              %a{href: "#"}
+                %time.date{:datetime => "2020-03-09"} 2020.03.09
+                %span.category.news NEWS
+                %span.title NEWSを更新しました
+            %li.scroll-item
+              %a{href: "#"}
+                %time.date{datetime: "2020-03-09"} 2020.03.09
+                %span.category.news NEWS
+                %span.title NEWSを更新しました
+            %li.scroll-item
+              %a{href: "#"}
+                %time.date{datetime: "2020-03-09"} 2020.03.09
+                %span.category.news NEWS
+                %span.title NEWSを更新しました
+            %li.scroll-item
+              %a{href: "#"}
+                %time.date{datetime: "2020-03-09"} 2020.03.09
+                %span.category.news NEWS
+                %span.title NEWSを更新しました
+        .share
+          %ul
+            %li
+              %a.share-tw{href: "#", onclick: ""}
+                %i.fa.fa-twitter
+                %span Twitter
+            %li
+              %a.share-fb{href: "#", onclick: ""}
+                %i.fa.fa-facebook
+                %span Facebook
+            %li
+              %a.share-gp{href: "#", onclick: ""}
+                %i.fa.fa-google-plus
+                %span Google+
+      .right-inner
+        .twetter
+          %a.twitter-timeline{"data-height": "315", href: "https://twitter.com/shirokuma71exp?ref_src=twsrc%5Etfw"} Tweets by shirokuma71exp
+          %script{async: "", charset: "utf-8", src: "https://platform.twitter.com/widgets.js"}
+%footer.page-footer
+  %button.back-to-top{type: "button"}
+    %span.label ↑

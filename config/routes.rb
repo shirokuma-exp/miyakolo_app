@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   get 'search' => 'search#index'
+  get '/map_request', to: 'maps#map', as: 'map_request'
 end

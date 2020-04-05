@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   has_many :map
 
   def image_presence
-    errors.add(:image, "can't be blank") unless image.attached?
+    errors.add(:image, "写真を追加してください") unless image.attached?
   end
 
   def create_hash_tags

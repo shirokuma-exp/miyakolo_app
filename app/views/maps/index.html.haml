@@ -1,16 +1,95 @@
+.top
+  = render "layouts/header"
 .chart-js
   %h3 宮古島MAP
   .map-container
     .map
-      %p
-        %img{alt: "map", height: "700px", src: "/assets/map-1.png", width: "700px"}
+      -# %h2 gmap
+      -# = form_with url: map_request_path, method: :get do |f|
+      -#   = f.text_field :address
+      -#   = f.submit '地図表示'
+      -#   #map
+
+    -# :javascript
+    -#   let mapInstance 
+
+    -#   function initMap(){
+    -#     mapInstance = new google.maps.Map(document.getElementById('map'), {
+    -#     center: {lat: -34.397, lng: 150.644},
+    -#     zoom: 8
+    -#     });
+    -#     }
+    
+    %script{async: "",defer: "defer",src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAgemcD9OTJ-JA0n1oBgEU31QiNmtHgqHY&callback=initMap"}
+
+    #map_canvas{style: "width:100%; height:500px;"}
+              
+    :javascript
+      let mapInstance 
+      var map;
+      var marker = [];
+      var infoWindow = [];
+      var markerData = [ {
+          title: '宮古島',
+          lat: 24.771305,
+          lng: 125.331364,
+          content: '宮古島<br><img src="./ippatsu.png" width="200"><br><a href="http://ippatsu.co.jp/" target="_blank">公式サイトはコチラ！</a>'
+        }, {
+          title: '池間島',
+          lat: 24.928318,
+          lng: 125.241767,
+          content: '池間島<br><img src="./nanashi.png" width="200"><br><a href="http://www.nanashi-food.com/" target="_blank">公式サイトはコチラ！</a>'
+        }, {
+          title: '来間島',
+          lat: 24.723289,
+          lng: 125.249318,
+          content: '来間島<br><img src="./nanashi.png" width="200"><br><a href="http://www.nanashi-food.com/" target="_blank">公式サイトはコチラ！</a>'
+        }, {
+          title: '伊良部島',
+          lat: 24.828962,
+          lng: 125.191645,
+          content: '伊良部島<br><img src="./nanashi.png" width="200"><br><a href="http://www.nanashi-food.com/" target="_blank">公式サイトはコチラ！</a>'
+         }, {
+          title: '下地島',
+          lat: 24.823976,
+          lng: 125.151137,
+          content: '下地島<br><img src="./nanashi.png" width="200"><br><a href="http://www.nanashi-food.com/" target="_blank">公式サイトはコチラ！</a>'
+        } ];
+      
+      function initMap() {
+        var mapLatLng = new google.maps.LatLng({lat: 24.773019, lng: 125.304779});
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+          center: mapLatLng, 
+          zoom: 11, 
+          mapTypeId: google.maps.MapTypeId.ROADMAP 
+        });
+        
+        for (var i = 0; i < markerData.length; i++) {
+          markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']});
+          marker[i] = new google.maps.Marker({
+            position: markerLatLng, 
+            map: map, 
+            title: markerData[i]['title'] 
+          });
+          
+          infoWindow[i] = new google.maps.InfoWindow({
+            content: markerData[i]['content']
+          });
+          
+          markerEvent(i);
+        }
+      }
+    
+      function markerEvent(i) {
+          marker[i].addListener('click', function() {
+            infoWindow[i].open(map, marker[i]);
+        });
+      }
+
     .chart
-      %p 宮古島の詳細地図を国土地理院のデータから作成
       %p 島ごとのいいねの数とハッシュタグ利用率をChart.jsで円グラフにし可視化
       %p 島をクリックすると詳細ページに飛ぶ
       %p 詳細ページから観光スポット情報、特産物のECサイトにリンク
-      %p 【応用】
-      %p 地理情報システムQJISを使って、ハッシュタグと地図の座標を紐付ける
       %p ツイート数＝円の大きさにして地図上にアップし、目で見てどのスポットが人気かわかるようにする
       .miyako-chart
         .miyako-likes

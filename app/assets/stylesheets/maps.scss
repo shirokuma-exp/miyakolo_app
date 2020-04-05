@@ -11,10 +11,12 @@
 .map-container{
   display: flex;
   justify-content: space-between;
+  padding-left: 30px;
 }
 
-.map{
-  width: 55vw;
+#map{
+  height: 400px;
+  width: 50vw;
 }
 .chart{
   width: 45vw;
