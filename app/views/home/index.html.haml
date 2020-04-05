@@ -1,3 +1,5 @@
+.top
+  = render "layouts/header"
 %header.slide-header
   .inner
     .slideshow
@@ -23,21 +25,21 @@
       .image-content
         %h2 Post
         %p
-          %a{href: "posts#index"}
+          %a{href: posts_path(current_user.id)}
             %img.image{alt: "", height: "230", src: "/assets/topic-1.jpg", width: "304"}
             %strong 好きな景色を投稿しよう
             %span
       .image-content
         %h2 Gallery
         %p
-          %a{href: "users#index"}
+          %a{href: users_path(current_user.id)}
             %img.image{alt: "", height: "230", src: "/assets/topic-2.jpg", width: "304"}
             %strong 好きな景色を探そう
             %span
       .image-content
         %h2 Map
         %p
-          %a{href: "maps#index"}
+          %a{href: maps_path(current_user.id)}
             %img.image{alt: "", height: "230", src: "/assets/topic-3.jpg", width: "304"}
             %strong どこが人気か調べよう
             %span

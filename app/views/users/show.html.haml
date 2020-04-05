@@ -1,3 +1,5 @@
+.top
+  = render "layouts/header"
 .user-profile
   .profile.row
     .col-md-4.avatar
@@ -24,13 +26,13 @@
       = link_to @user.website, @user.website, class: 'website'
       = render "relationships/follow_button",user: @user
   .user-tabs
-    %a.tab.active{href: ""}
+    %a.tab.active{href: "#"}
       %i.fa.fa-th
       投稿
-    %a.tab{:href: ""}
+    %a.tab{href: "#"}
       %i.fa.fa-bookmark
       いいね
-    %a.tab{href: ""}
+    %a.tab{href: "#"}
       %i.fa.fa-star
       ランキング
   .image-wrapper
@@ -40,14 +42,16 @@
           = link_to post_path(post) do
             = image_tag post.image,class: "image"
     %p いいねしている投稿
-    .liked.user-images
-      - @user.liked_posts.each do |post|
-        .wrapper
-          = link_to post_path(post) do
-            = image_tag post.image,class: "image"
+    .image-wrapper
+      .user-images
+        - @user.liked_posts.each do |post|
+          .wrapper
+            = link_to post_path(post) do
+              = image_tag post.image,class: "image"
     %p ランキング
-    .my_rank.user-images
-      - @my_ranks.each.with_index(1) do |post, i|
-        .wrapper
-          = link_to post_path(post) do
-            = image_tag post.image,class: "image"
+    .image-wrapper
+      .user-images
+        - @my_ranks.each.with_index(1) do |post, i|
+          .wrapper
+            = link_to post_path(post) do
+              = image_tag post.image,class: "image"

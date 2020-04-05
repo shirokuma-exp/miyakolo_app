@@ -1,3 +1,5 @@
+.top
+  = render "layouts/header"
 .aside-bar
   %aside
     %ul
@@ -11,10 +13,11 @@
         %a{href: "#"}
           %img.image{alt: "", height: "150", src: "/assets/topic-3.jpg", width: "150"}
     %button
-      %img{alt: "", src: "/assets/btn_open.png"}/
-.user-images
-  - @posts.each do |post|
-    .wrapper
-      = link_to post_path(post) do
-        = image_tag post.image
-- link_to "ホームへ戻る",posts_path
+      %img{alt: "", src: "/assets/btn_open.png"}
+.image-wrapper
+  .user-images
+    - @posts.each do |post|
+      .wrapper
+        = link_to post_path(post) do
+          = image_tag post.image,class: "image"
+  - link_to "ホームへ戻る",posts_path
