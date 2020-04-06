@@ -1,3 +1,3 @@
 class Home < ApplicationRecord
-  has_one :user, :optional => true
+  has_one :user
 end
