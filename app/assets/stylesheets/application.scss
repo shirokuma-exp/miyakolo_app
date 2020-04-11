@@ -1,9 +1,10 @@
 @import "bootstrap";
 @import "font-awesome";
-@import "users";
-@import "posts";
-@import "home";
-@import "maps";
+@import "modules/users";
+@import "modules/posts";
+@import "modules/homes";
+@import "modules/maps";
+@import "reset";
 
 .nav-header{
   font-size: 30px;
