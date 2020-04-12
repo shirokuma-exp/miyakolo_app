@@ -2,13 +2,13 @@
   = render "layouts/header"
 .user__wrapper
   .user__wrapper__container
-    .user-profile
-      .profile
-        .avatar
+    .user__wrapper__container__profile
+      .user__wrapper__container__profile__content
+        .user__wrapper__container__profile__content__avatar
           .wrapper
             - if @user.avatar.attached?
               = image_tag @user.avatar
-        .basic-info
+        .user__wrapper__container__profile__content__info
           .user-wrapper
             %h2.username= @user.username
             - if @user == current_user
