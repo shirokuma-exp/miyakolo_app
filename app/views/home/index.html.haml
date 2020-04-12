@@ -27,21 +27,21 @@
         %h2 Post
         %p
           %a{href: posts_path(current_user.id)}
-            %img.image{alt: "", height: "230", src: "/assets/topic-1.jpg", width: "304"}
+            = image_tag 'topic-1.jpg', alt: '投稿', height: '230', width: '304', class: 'image'
             %strong 好きな景色を投稿しよう
             %span
       .image-content
         %h2 Gallery
         %p
           %a{href: users_path(current_user.id)}
-            %img.image{alt: "", height: "230", src: "/assets/topic-2.jpg", width: "304"}
+            = image_tag 'topic-2.jpg', alt: '投稿', height: '230', width: '304', class: 'image'
             %strong 好きな景色を探そう
             %span
       .image-content
         %h2 Map
         %p
           %a{href: maps_path(current_user.id)}
-            %img.image{alt: "", height: "230", src: "/assets/topic-3.jpg", width: "304"}
+            = image_tag 'topic-3.jpg', alt: '投稿', height: '230', width: '304', class: 'image'
             %strong どこが人気か調べよう
             %span
 

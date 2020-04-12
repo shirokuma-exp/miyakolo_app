@@ -1,28 +1,53 @@
-# README
+# MIYAKOLO(宮古島地域SNSアプリ)
+宮古島に特化した地域型SNSです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://i.gyazo.com/b4a3131b8c98a4cdfc0899b7ab7f9c4d.gif
+SNS上を旅したくなるトップページ
 
-Things you may want to cover:
+https://i.gyazo.com/de8c5e78e1e97d34324b5c5be8e1f722.gif
+・ツイート投稿機能
+・ツイート画像のギャラリー機能
+・ツイートで反響の多いロケーションを地図上で確認する機能
+を実装している。
 
-* Ruby version
+# 制作背景
+### ガイドブックに乗っていない本当に魅力的な観光スポットをSNSから配信するため。
+大規模なメディアにより、代表的な観光地には簡単にアクセスできるようになりました。
+しかし、その弊害で旅をする場所が短調になってしまったようにも思います。
 
-* System dependencies
+私は昔、沖縄に移住をしていました。その時に地元の方から勧められる場所には
+ガイドマップに載っていない場所も多くありました。
+そして、そのどれもが本当に素晴らしい場所でした。
 
-* Configuration
+宮古島に訪れた人、宮古島に住んでいる人がSNS上でコミュニティを形成し、
+その中で得た情報を基に本当に魅力のあるスポットを観光をする。
+そんなプラットフォームを作るために、このアプリを制作しました。
 
-* Database creation
+# 工夫したポイント
+・GoogleMap APIを使って、地図情報とツイートの紐つけをしました。
+・ビューにCSSアニメーションとJavaScriptを使い、アプリの中で旅をしたくなるようなメインページを作成しました。
+・Chart.jsでいいね数やハッシュタグ利用数を可視化しました。 
+# 本番環境
+https://miyakolo.herokuapp.com/
+テストアカウント：
+ID：
+Password:
+※現在、一部調整中
+・制作背景(意図)
+　⇒どんな課題や不便なことを解決するためにこのアプリを作ったのか。
+・DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
+　⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。
+・工夫したポイント
+# 使用技術(開発環境)
+使用言語：Ruby/ Ruby on Rails/ Haml/ Sass/ jQuery
+デプロイ環境：Heroku
+# 課題や今後実装したい機能
+・グループ機能を作り、地域ごとにさらに細分化したコミュニティを作る。
+・各観光スポットのおすすめ情報を地図情報に紐付ける。
+・ユーザーの位置情報を基に適切なハッシュタグを提示する機能を実装する。
+・地図情報の表示を島単位からロケーション単位に変更して、星つけをする。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* DB
-# miyakolo DB設計
+# DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|

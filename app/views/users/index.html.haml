@@ -5,15 +5,15 @@
     %ul
       %li
         %a{href: "#"}
-          %img.image{alt: "", height: "150", src: "/assets/topic-1.jpg", width: "150"}
+          = image_tag 'topic-1.jpg', alt: '投稿', height: '150', width: '150', class: 'image'
       %li
         %a{href: "#"}
-          %img.image{alt: "", height: "150", src: "/assets/topic-2.jpg", width: "150"}
+          = image_tag 'topic-2.jpg', alt: '投稿', height: '150', width: '150', class: 'image'
       %li
         %a{href: "#"}
-          %img.image{alt: "", height: "150", src: "/assets/topic-3.jpg", width: "150"}
+          = image_tag 'topic-3.jpg', alt: '投稿', height: '150', width: '150', class: 'image'
     %button
-      %img{alt: "", src: "/assets/btn_open.png"}
+      = image_tag 'btn_open.png', alt: 'ボタン'
 .image-wrapper
   .user-images
     - @posts.each do |post|
