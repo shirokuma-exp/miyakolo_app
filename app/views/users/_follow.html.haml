@@ -1,0 +1,4 @@
+.follow-btn
+  = form_for(current_user.follow_relationships.build(follow_id: @user.id)) do |f| 
+    = f.hidden_field :follow_id
+    = f.submit "フォロー", class: "follow-btn"
