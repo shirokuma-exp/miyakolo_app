@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users
   resources :home, only: [:index, :show]
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :relationships, only: [:create, :destroy]
   resources :maps, only: [:index]
   resources :posts, only: [:index,:new,:create,:show,:destroy] do
