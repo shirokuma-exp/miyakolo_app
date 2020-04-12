@@ -20,8 +20,8 @@
         MIYAKOLO
 
 .main
-  %section.topics-section
-    %h2.topics TOPICS
+  %section.topics
+    %h2.topics__title TOPICS
     #caption.images
       .image-content
         %h2 Post
@@ -46,47 +46,40 @@
             %span
 
   %section#info.info-section
-    .container
-      .left-inner
-        .info
-          %h2.heading INFO
-          %ul.scroll-list
-            %li.scroll-item
-              %a{href: "#"}
-                %time.date{:datetime => "2020-03-09"} 2020.03.09
-                %span.category.news NEWS
-                %span.title NEWSを更新しました
-            %li.scroll-item
-              %a{href: "#"}
-                %time.date{datetime: "2020-03-09"} 2020.03.09
-                %span.category.news NEWS
-                %span.title NEWSを更新しました
-            %li.scroll-item
-              %a{href: "#"}
-                %time.date{datetime: "2020-03-09"} 2020.03.09
-                %span.category.news NEWS
-                %span.title NEWSを更新しました
-            %li.scroll-item
-              %a{href: "#"}
-                %time.date{datetime: "2020-03-09"} 2020.03.09
-                %span.category.news NEWS
-                %span.title NEWSを更新しました
-        .share
-          %ul
-            %li
-              %a.share-tw{href: "#", onclick: ""}
+    .info-section__container
+      .info-section__container__left
+        .info-section__container__left__inner
+          %h2.info-section__container__left__inner__title INFO
+          %ul.info-section__container__left__inner__scroll-list
+            %li.info-section__container__left__inner__scroll-list__item
+              %time.date{datetime: "2020-03-09"} 2020.03.09
+              %span.category.news NEWS
+              %span.title NEWSを更新しました
+            %li.info-section__container__left__inner__scroll-list__item
+              %time.date{datetime: "2020-03-09"} 2020.03.09
+              %span.category.news NEWS
+              %span.title NEWSを更新しました
+            %li.info-section__container__left__inner__scroll-list__item
+              %time.date{datetime: "2020-03-09"} 2020.03.09
+              %span.category.news NEWS
+              %span.title NEWSを更新しました
+            %li.info-section__container__left__inner__scroll-list__item
+              %time.date{datetime: "2020-03-09"} 2020.03.09
+              %span.category.news NEWS
+              %span.title NEWSを更新しました
+          .info-section__container__left__inner__share
+            %ul.info-section__container__left__inner__share__sns
+              %li.info-section__container__left__inner__share__sns__tw
                 %i.fa.fa-twitter
                 %span Twitter
-            %li
-              %a.share-fb{href: "#", onclick: ""}
+              %li.info-section__container__left__inner__share__sns__fb
                 %i.fa.fa-facebook
                 %span Facebook
-            %li
-              %a.share-gp{href: "#", onclick: ""}
+              %li.info-section__container__left__inner__share__sns__gp
                 %i.fa.fa-google-plus
                 %span Google+
-      .right-inner
-        .twitter
+      .info-section__container__right
+        .info-section__container__right__api
           %a.twitter-timeline{"data-height": "315", href: "https://twitter.com/shirokuma71exp?ref_src=twsrc%5Etfw"} Tweets by shirokuma71exp
           %script{async: "", charset: "utf-8", src: "https://platform.twitter.com/widgets.js"}
 .footer
