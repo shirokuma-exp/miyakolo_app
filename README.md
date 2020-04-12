@@ -13,11 +13,8 @@ SNS上を旅したくなるトップページ
 ![demo](https://i.gyazo.com/42fb951db8de0742caa771cfca91f34e.gif)  
 ・ツイート投稿機能  
 
-![demo](https://i.gyazo.com/a41ebd8e465645559c48b4e47a22c098.gif)
+![demo](https://i.gyazo.com/a41ebd8e465645559c48b4e47a22c098.gif)  
 ・ギャラリー機能
-
-![demo](https://i.gyazo.com/901415874bba7d71166354475e631b51.gif)
-・ロケーション機能
 
 # 制作背景
 ### ガイドブックに乗っていない本当に魅力的な観光スポットをSNSから配信するため。
