@@ -1,3 +1,12 @@
+.user__wrapper{
+  width: 100vw;
+  height: 100vh;
+  &__container{
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
 .profile .avatar{
   .wrapper{
     width: 140px;
@@ -124,67 +133,77 @@
   display: flex;
 }
 
-.user-edit-page{
+.user__edit{
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  margin-top: 60px;
-  min-height: 500px;
-  .actions{
-    width: 220px;
+  justify-content: flex-start;
+  &__left{
+    width: 250px;
+    padding-top: 20px;
     border: 1px solid #dbdbdb;
-    .nav-link{
-      font-size: 14px;
+    .tab__select{
+      font-size: 1em;
       background-color: white;
       color: black;
       border-radius: 0;
-      padding: 12px 0 12px 30px;
+      padding: 12px 0 5px 10px;
       &:hover{
         cursor: pointer;
+        border-left: 3px solid;
       }
     }
-    .nav-pills .nav-link.active{
-      border-left: 2px solid;
-      font-weight: 600;
-    }
   }
-  .details{
+  &__right{
     flex: 1;
     border: 1px solid #dbdbdb;
     border-left: none;
+    .edit__current__user{
+      padding: 30px 100px 10px 50px;
+      .form-group{
+        font-size: 14px;
+        color: black;
+        padding-top: 5px;
+      }
+      input, textarea{
+        border: 1px solid #efefef;
+      }
+      .form-label{
+        text-align: right;
+        font-weight: 600;
+      }
+      .form__box{
+        width: 60%;
+        height: 30px;
+        font-size: 1em;
+        line-height: 15px;
+        &__bio{
+          height: 50px;
+          width: 60%;
+        }
+      }
+      .edit__form__submit{
+        width: 60%;
+        height: 50px;
+        font-size: 1.3em;
+        font-weight: bold;
+        background-color: rgb(217, 236, 252);
+      }
+      .avatar{
+        height: 38px;
+        width: 38px;
+        border-radius: 50%;
+      }
+      .username{
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
-.form-edit-user{
-  padding: 30px 100px 10px 50px;
-  .form-group, input{
-    font-size: 14px;
-    color: black;
-  }
-  input, textarea{
-    border: 1px solid #efefef;
-  }
-  .col-form-label{
-    text-align: right;
-    font-weight: 600;
-  }
-  .avatar{
-    height: 38px;
-    width: 38px;
-    border-radius: 50%;
-  }
-  .username{
-    font-size: 20px;
-    line-height: 22px;
-    margin-bottom: 0;
-  }
-  .change-photo{
-    color: #3897f0;
-    text-decoration: none;
-    font-size:13px;
-  }
-  input[type='submit']{
-    color: white;
-  }
-}
+
 
 .aside-bar{
   position: relative;
