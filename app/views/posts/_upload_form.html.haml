@@ -1,10 +1,23 @@
-= form_for Post.new do |f|
-  .form-group
-    = f.text_field :description
-  .form-group
-    = f.file_field :image
-  .form-group
-    = f.text_field :user_id, value: current_user.id,class: 'd-none'
-  %br/
-  .text-center
-    = f.submit '投稿する',class: 'btn btn-primary'
+.upload
+  .upload__container
+    = form_for Post.new do |f|
+      .form-group
+        = f.file_field :image
+      .form-group
+        = f.text_field :description,class: "post__description"
+      .hash-tag__recommend
+        %h2 おすすめのハッシュタグ
+        .hash-tag__recommend__items
+          %p.hash-tag__recommend__items__item 宮古島
+          %p.hash-tag__recommend__items__item 池間島
+          %p.hash-tag__recommend__items__item 来間島
+          %p.hash-tag__recommend__items__item 下地島
+          %p.hash-tag__recommend__items__item 伊良部島
+      .post__user__address
+        %h2 現在地を検索する
+        .post__user__address__search
+      .form-group.display-none
+        = f.text_field :user_id, value: current_user.id
+      %br/
+      .text-center
+        = f.submit '投稿する',class: 'post__submit__btn'

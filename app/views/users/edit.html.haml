@@ -1,58 +1,54 @@
 .top
   = render "layouts/header"
-.user-edit-page
-  .actions
-    .nav.flex-column.nav-pills{"aria-orientation": "vertical", role: "tablist"}
-      %a.nav-link.active{"aria-selected": "true", "data-toggle": "pill", href: "#v-pills-home", role: "tab"} Edit Profile
-      %a.nav-link{"data-toggle": "pill"} Change Password
-      %a.nav-link{"data-toggle": "pill"} Authorized Applications
-      %a.nav-link{"data-toggle": "pill"} Email and SMS
-      %a.nav-link{"data-toggle": "pill"} Manage Contacts
-      %a.nav-link{"data-toggle": "pill"} Privacy and Security
-      = link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link"
-  .details.tab-content
-    #v-pills-home.tab-pane.fade.show.active{"aria-labelledby": "v-pills-home-tab", role: "tabpanel"}
-      = form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f|
-        .form-group.row
-          .col-sm-3.col-form-label
-            - if current_user.avatar.attached?
-              = image_tag current_user.avatar, class: 'avatar'
-          .col-sm-9
-            %p.username= current_user.username
-            %a.change-photo{href: ""} Change Profile Photo
-        .form-group.row
-          = f.label :avatar, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.file_field :avatar, class: 'form-control'
-        .form-group.row
-          = f.label :name, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :name, class: 'form-control'
-        .form-group.row
-          = f.label :username, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :username, class: 'form-control'
-        .form-group.row
-          = f.label :website, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :website, class: 'form-control'
-        .form-group.row
-          = f.label :bio, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_area :bio, class: 'form-control'
-        .form-group.row
-          = f.label :email, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :email, class: 'form-control'
-        .form-group.row
-          = f.label :phone, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :phone, class: 'form-control'
-        .form-group.row
-          = f.label :gender, class: 'col-sm-3 col-form-label'
-          .col-sm-9
-            = f.text_field :gender, class: 'form-control'
-        .form-group.row
-          .col-sm-3
-          .col-sm-9
-            = f.submit "Submit", class: 'btn btn-primary'
+.user__edit
+  .user__edit__left
+    .user__edit__left__container
+      %p.tab__select プロフィール編集
+      %p.tab__select パスワード変更
+      %p.tab__select SNS認証
+      %p.tab__select サポート
+      %p.tab__select プライバシーとセキュリティ
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "tab__select"
+  .user__edit__right
+    = form_with model: current_user, local: true, html: {class: "edit__current__user"} do |f|
+      .form-group
+        .current__avatar
+          - if current_user.avatar.attached?
+            = image_tag current_user.avatar, class: 'avatar'
+        .edit__user__form
+          %p.username= current_user.username
+      .form-group
+        = f.label :プロフィール画像, class: 'form-label'
+        .edit__user__form
+          = f.file_field :avatar, class: 'form__box'
+      .form-group
+        = f.label :名前, class: 'form-label'
+        .edit__user__form
+          = f.text_field :name, class: 'form__box'
+      .form-group
+        = f.label :ニックネーム, class: 'form-label'
+        .edit__user__form
+          = f.text_field :username, class: 'form__box'
+      .form-group
+        = f.label :ウェブサイト, class: 'form-label'
+        .edit__user__form
+          = f.text_field :website, class: 'form__box'
+      .form-group
+        = f.label :現在地, class: 'form-label'
+        .edit__user__form
+          = f.text_area :bio, class: 'form__box__bio'
+      .form-group
+        = f.label :email, class: 'form-label'
+        .edit__user__form
+          = f.text_field :email, class: 'form__box'
+      .form-group
+        = f.label :電話番号, class: 'form-label'
+        .edit__user__form
+          = f.text_field :phone, class: 'form__box'
+      .form-group
+        = f.label :性別, class: 'form-label'
+        .edit__user__form
+          = f.text_field :gender, class: 'form__box'
+      .form-group
+        .edit__user__form
+          = f.submit "送信する", class: 'edit__form__submit'
