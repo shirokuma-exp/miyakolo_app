@@ -4,11 +4,13 @@
 ![demo](https://i.gyazo.com/b4a3131b8c98a4cdfc0899b7ab7f9c4d.gif)  
 SNS上を旅したくなるトップページ  
 
-![demo](https://i.gyazo.com/9f63e6fbe4fb0647e9d1a24c1fc990fe.gif)  
 ・ツイート投稿機能  
 ・ツイート画像のギャラリー機能  
 ・ツイートで反響の多いロケーションを地図上で確認する機能  
 を実装している。
+
+![demo](https://i.gyazo.com/497d173f5635417eb7a5cd4ab4e3cc26.png)  
+・ツイートで反響の多いロケーションを地図上で確認する機能  
 
 # 制作背景
 ### ガイドブックに乗っていない本当に魅力的な観光スポットをSNSから配信するため。
@@ -45,3 +47,105 @@ Password:testtest
 ・各観光スポットのおすすめ情報を地図情報に紐付ける。  
 ・ユーザーの位置情報を基に適切なハッシュタグを提示する機能を実装する。  
 ・地図情報の表示を島単位からロケーション単位に変更して、星つけをする。
+
+# DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|default: "",null: false|
+|encrypted_password|string|default: "",null: false|
+|username|string||
+|name|string||
+|website|string||
+|phone|integer||
+|gender|string||
+### Association
+- devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+- has_one_attached :avatar
+- has_many :posts, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_posts, through: :likes, source: :post
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
+- belongs_to :home
+
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|description|string||
+|user_id|integer||
+### Association
+- belongs_to :user
+- has_one_attached :image
+- has_many :likes
+- has_many :liked_users, through: :likes, source: :user
+- has_many :post_hash_tags
+- has_many :hash_tags, through: :post_hash_tags
+- validate :image_presence
+- after_commit :create_hash_tags, on: :create
+- has_many :map
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|foreign_key: true,column: "follow_id"|
+|follow_id|bigint||
+### Association
+- belongs_to :user
+- belongs_to :follow,class_name: 'User'
+- validates :user_id,presence: true
+- validates :follow_id, presence: true
+
+## post_hash_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_id|bigint||
+|hash_tag_id|bigint||
+### Association
+- belongs_to :post
+- belongs_to :hash_tag
+
+## mapsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|hash_tag_id|bigint||
+|post_id|bigint||
+|region|string||
+### Association
+- belongs_to :post
+- belongs_to :hash_tag
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_id|bigint|foreign_key: true|
+|user_id|bigint|foreign_key: true|
+### Association
+- belongs_to :post
+- belongs_to :user
+- validates_uniqueness_of :post_id, scope: :user_id
+
+## homesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|foreign_key: true|
+### Association
+- has_many :users
+
+## hash_tags テーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+### Association
+- has_many :post_hash_tags
+- has_many :posts, through: :post_hash_tags
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+- belongs_to :user
