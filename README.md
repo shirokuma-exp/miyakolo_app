@@ -4,11 +4,20 @@
 ![demo](https://i.gyazo.com/b4a3131b8c98a4cdfc0899b7ab7f9c4d.gif)  
 SNS上を旅したくなるトップページ  
 
-![demo](https://i.gyazo.com/de8c5e78e1e97d34324b5c5be8e1f722.gif)  
+![demo](https://i.gyazo.com/9f63e6fbe4fb0647e9d1a24c1fc990fe.gif)  
 ・ツイート投稿機能  
 ・ツイート画像のギャラリー機能  
 ・ツイートで反響の多いロケーションを地図上で確認する機能  
 を実装している。
+
+![demo](https://i.gyazo.com/42fb951db8de0742caa771cfca91f34e.gif)  
+・ツイート投稿機能  
+
+![demo](https://i.gyazo.com/a41ebd8e465645559c48b4e47a22c098.gif)
+・ギャラリー機能
+
+![demo](https://i.gyazo.com/901415874bba7d71166354475e631b51.gif)
+・ロケーション機能
 
 # 制作背景
 ### ガイドブックに乗っていない本当に魅力的な観光スポットをSNSから配信するため。
@@ -34,7 +43,7 @@ https://miyakolo.herokuapp.com/
 テストアカウント：  
 ID：test@gmail.com  
 Password:testtest  
-※現在、一部調整中  
+※現在、一部機能を調整中です。  
 
 # 使用技術(開発環境)
 使用言語：Ruby/ Ruby on Rails/ Haml/ Sass/ jQuery  
