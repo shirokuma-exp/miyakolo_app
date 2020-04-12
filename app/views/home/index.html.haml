@@ -1,7 +1,8 @@
 .top
   = render "layouts/header"
-%header.slide-header
-  .inner
+
+%header.slide__wrapper
+  .slide__wrapper__container
     .slideshow
       .slideshow-slides
         %a#slide-1.slide{href: "./"}= image_tag 'slide-1.jpg'
@@ -11,14 +12,14 @@
         %a.prev{href: "#"} Prev
         %a.next{href: "#"} Next
       .slideshow-indicator
-  .wave-box
-    .wave.-one
-    .wave.-two
-    .wave.-three
-    .title
-      MIYAKOL
-      %span O
-%div{role: "main"}
+    .wave-box
+      .wave.-one
+      .wave.-two
+      .wave.-three
+      .title
+        MIYAKOLO
+
+.main
   %section.topics-section
     %h2.topics TOPICS
     #caption.images
@@ -43,6 +44,7 @@
             %img.image{alt: "", height: "230", src: "/assets/topic-3.jpg", width: "304"}
             %strong どこが人気か調べよう
             %span
+
   %section#info.info-section
     .container
       .left-inner
@@ -84,9 +86,8 @@
                 %i.fa.fa-google-plus
                 %span Google+
       .right-inner
-        .twetter
+        .twitter
           %a.twitter-timeline{"data-height": "315", href: "https://twitter.com/shirokuma71exp?ref_src=twsrc%5Etfw"} Tweets by shirokuma71exp
           %script{async: "", charset: "utf-8", src: "https://platform.twitter.com/widgets.js"}
-%footer.page-footer
-  %button.back-to-top{type: "button"}
-    %span.label ↑
+.footer
+  = render "layouts/footer"
