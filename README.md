@@ -1,10 +1,10 @@
 # MIYAKOLO(宮古島地域SNSアプリ)
 宮古島に特化した地域型SNSです。  
 
-![Alt text][https://i.gyazo.com/b4a3131b8c98a4cdfc0899b7ab7f9c4d.gif]  
+![demo](https://i.gyazo.com/b4a3131b8c98a4cdfc0899b7ab7f9c4d.gif)  
 SNS上を旅したくなるトップページ  
 
-![Alt text][https://i.gyazo.com/de8c5e78e1e97d34324b5c5be8e1f722.gif]  
+![demo](https://i.gyazo.com/de8c5e78e1e97d34324b5c5be8e1f722.gif)  
 ・ツイート投稿機能  
 ・ツイート画像のギャラリー機能  
 ・ツイートで反響の多いロケーションを地図上で確認する機能  
