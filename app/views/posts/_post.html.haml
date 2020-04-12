@@ -1,10 +1,10 @@
 %section.post
-  .user
-    .avatar
+  .post__user
+    .post__user__avatar
       - if post.user.avatar.attached?
         = link_to user_path(post.user) do
           = image_tag post.user.avatar
-    = link_to post.user.username, user_path(post.user),class: 'username'
+    = link_to post.user.username, user_path(post.user),class: 'post__user__username'
   = image_tag post.image, class: 'main-image'
   .description
     = render partial: "posts/description",locals: {post: post}

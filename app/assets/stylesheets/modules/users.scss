@@ -1,0 +1,239 @@
+.user__wrapper{
+  width: 100%;
+  height: 100vh;
+  &__container{
+    width: 80%;
+    margin: 0 auto;
+    &__profile{
+      &__content{
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10px;
+        &__avatar{
+
+          .wrapper{
+            width: 140px;
+            height: 140px;
+            margin: 40px auto;
+            img{
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+        }
+        &__info{
+          padding: 40px 0;
+          .user-wrapper{
+            display: flex;
+          }
+          .username{
+            font-size: 30px;
+            line-height: 40px;
+            font-weight: 200;
+          }
+          .edit-profile{
+            margin-left: 20px;
+            margin-top: 5px;
+            button{
+              background-color: transparent;
+              border-radius: 5px;
+              border: 1px solid #dbdbdb;
+              color: #262626;
+              font-size: 14px;
+              padding: 4px 10px;
+              font-weight: 500;
+            }
+          }
+          
+          ul.posts{
+            padding-left: 0;
+            > li{
+              display: inline;
+              padding-right: 40px;
+              font-size: 15px;
+              span{
+                color: #262626;
+                font-weight: 600;
+              }
+            }
+          }
+          .name{
+            font-size: 15px;
+            font-weight: 600;
+          }
+          .website{
+            color: #003569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-tabs{
+  border-top: 1px solid #efefef;
+  display: flex;
+  justify-content: center;
+  a.tab{
+    height: 35px;
+    margin-right: 50px;
+    line-height: 45px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    i{
+      padding-right: 1px;
+    }
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  a.active{
+    border-top: 1px solid #262626;
+    color: #262626;
+  }
+}
+
+.image-wrapper{
+  width: 100vw;
+  .user-images{
+    display: flex;
+    align-content: space-between;
+    margin: 0 20px;
+    .wrapper{
+      width: 280px;
+      height: 280px;
+      margin: 15px;
+      display: flex;
+      align-content: space-between;
+      .image{
+        display: block;
+        border-radius: 4%;
+        width: 278px;
+        height: 278px;
+        object-fit: cover;
+        border: 1px solid #efefef;
+      }
+    }
+  }
+}
+
+
+.liked{
+  display: flex;
+}
+
+.user__edit{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  &__left{
+    width: 250px;
+    padding-top: 20px;
+    border: 1px solid #dbdbdb;
+    .tab__select{
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border-radius: 0;
+      padding: 12px 0 5px 10px;
+      &:hover{
+        cursor: pointer;
+        border-left: 3px solid;
+      }
+    }
+  }
+  &__right{
+    flex: 1;
+    border: 1px solid #dbdbdb;
+    border-left: none;
+    .edit__current__user{
+      padding: 30px 100px 10px 50px;
+      .form-group{
+        font-size: 14px;
+        color: black;
+        padding-top: 5px;
+      }
+      input, textarea{
+        border: 1px solid #efefef;
+      }
+      .form-label{
+        text-align: right;
+        font-weight: 600;
+      }
+      .form__box{
+        width: 60%;
+        height: 30px;
+        font-size: 1em;
+        line-height: 15px;
+        &__bio{
+          height: 50px;
+          width: 60%;
+        }
+      }
+      .edit__form__submit{
+        width: 60%;
+        height: 50px;
+        font-size: 1.3em;
+        font-weight: bold;
+        background-color: rgb(217, 236, 252);
+      }
+      .avatar{
+        height: 38px;
+        width: 38px;
+        border-radius: 50%;
+      }
+      .username{
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.aside-bar{
+  position: relative;
+  aside{
+    background-color: rgba(150, 252, 252, 0.6);
+    width: 350px;
+    height: 100%;
+    top: 0;
+    left: -350px;
+    position: fixed;
+    ul{
+      margin: 0;
+      padding: 0;
+      top: 50px;
+      left: 114px;
+      position: absolute;
+    }
+    li{
+      margin: 0 0 20px;
+      list-style: none;
+      image{
+        border-radius: 50%;
+      }
+    }
+    button{
+      background-color: rgba(150, 252, 252, 0.6);
+      display: block;
+      position: absolute;
+      top: 150px;
+      left: 350px;
+      width: 52px;
+      height: 132px;
+      border-radius: 3px;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  }
+
+}
