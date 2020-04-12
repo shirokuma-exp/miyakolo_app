@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index, :show]
   resources :users do
     member do
-      get :following, :followers
+      get :follows, :followers
     end
   end
   resources :relationships, only: [:create, :destroy]

@@ -9,24 +9,20 @@
             - if @user.avatar.attached?
               = image_tag @user.avatar
         .user__wrapper__container__profile__content__info
-          .user-wrapper
+          .user__wrapper__container__profile__content__info__account
             %h2.username= @user.username
             - if @user == current_user
               %a.edit-profile{href: "#{edit_user_path(@user)}"}
                 %button プロフィール変更
-          %ul.posts
-            %li
-              %span>= @posts.count
+          .user__wrapper__container__profile__content__info__posts
+            .user__wrapper__container__profile__content__info__posts__count
+              = @posts.count
               ツイート
-            %li
-              %span> 195
-              フォロワー
-            %li
-              %span> 2
-              フォロー
+            .user__wrapper__container__profile__content__info__posts__count
+              = render 'stats'
           %h2.name= @user.name
           = link_to @user.website, @user.website, class: 'website'
-          = render "relationships/follow_button",user: @user
+          = render 'follow_form'
       .user-tabs
         %a.tab.active{href: "#"}
           %i.fa.fa-th
