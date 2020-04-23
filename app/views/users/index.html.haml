@@ -14,10 +14,10 @@
           = image_tag 'topic-3.jpg', alt: '投稿', height: '150', width: '150', class: 'image'
     %button
       = image_tag 'btn_open.png', alt: 'ボタン'
-.image-wrapper
-  .user-images
+.image--wrapper
+  .image--wrapper__post
     - @posts.each do |post|
-      .wrapper
+      .image--wrapper__post--images
         = link_to post_path(post) do
           = image_tag post.image,class: "image"
-  - link_to "ホームへ戻る",posts_path
+  = link_to "ホームへ戻る",posts_path
