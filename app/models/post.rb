@@ -22,4 +22,7 @@ class Post < ApplicationRecord
   def extract_name_hash_tags
     description.to_s.scan(/#\w+/).map{|name| name.gsub("#","")}
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :island
 end
